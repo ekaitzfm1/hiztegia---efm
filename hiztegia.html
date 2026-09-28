@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="eu" class="dark">
 <head>
@@ -402,4 +403,410 @@ Sistemaren jabeak jakin gabe, ziberdelagileek eduki guztietarako sarbide osoa lo
         }
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="eu" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiztegia - Zibersegurtasun Hiztegia</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        obsidian: {
+                            950: '#05070B',
+                            900: '#090D14',
+                            800: '#0F172A',
+                            700: '#1E293B',
+                            600: '#334155',
+                        },
+                        champagne: {
+                            100: '#FDFBF7',
+                            200: '#F7F0E3',
+                            300: '#EBD9B9',
+                            400: '#DFBF85',
+                            500: '#D4AF37',
+                            600: '#B28E28',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(9, 13, 20, 0.8);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(212, 175, 55, 0.25);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(212, 175, 55, 0.5);
+        }
+
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        
+        html.light .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF0D0 0%, #D4AF37 50%, #997B15 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gold-card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.15);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        /* Content Markdown typography styling */
+        .term-content h3 {
+            color: #D4AF37;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.15rem;
+            margin-top: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .term-content ul {
+            list-style-type: disc;
+            padding-left: 1.25rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .term-content li {
+            margin-bottom: 0.25rem;
+        }
+    </style>
+</head>
+<body class="bg-obsidian-950 text-slate-100 min-h-screen font-sans transition-colors duration-300 dark:bg-obsidian-950 dark:text-slate-100 light:bg-slate-50 light:text-slate-900 selection:bg-champagne-500/30 selection:text-champagne-300">
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+        
+        <!-- Header Section: Only Title, Search, and Theme Toggle -->
+        <header class="glass-panel rounded-2xl p-4 sm:p-6 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+            <h1 class="font-serif text-3xl sm:text-4xl font-bold tracking-tight gold-gradient-text flex-shrink-0">
+                Hiztegia
+            </h1>
+
+            <div class="flex items-center gap-3 w-full sm:w-auto flex-1 max-w-md justify-end">
+                <!-- Search Input -->
+                <div class="relative w-full">
+                    <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    <input type="text" id="searchInput" placeholder="Bilatu kontzeptua..." class="w-full pl-10 pr-4 py-2 bg-obsidian-900/80 light:bg-slate-100 border border-slate-700/60 light:border-slate-300 rounded-xl text-sm text-slate-100 light:text-slate-900 placeholder-slate-500 focus:outline-none focus:border-champagne-500/60 transition-all duration-200" />
+                </div>
+
+                <!-- Theme Toggle Button -->
+                <button id="themeToggleBtn" title="Aldatu Gaia" class="p-2.5 rounded-xl bg-obsidian-900/80 light:bg-slate-200 hover:bg-obsidian-800 text-amber-400 border border-amber-500/20 transition-all duration-200 flex-shrink-0">
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <div id="cardsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Dynamic concept cards inserted via JS -->
+            </div>
+
+            <!-- Empty Search State -->
+            <div id="emptyState" class="hidden glass-panel rounded-2xl p-12 text-center flex flex-col items-center justify-center space-y-3 my-8">
+                <div class="w-12 h-12 rounded-full bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-champagne-400">
+                    <i data-lucide="search-x" class="w-6 h-6"></i>
+                </div>
+                <h3 class="font-serif text-lg font-bold text-slate-200 light:text-slate-800">Ez da emaitzarik aurkitu</h3>
+                <p class="text-xs text-slate-400 max-w-xs">Saiatu beste bilaketa-terminoren bat erabiltzen.</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal: Concept Reader View -->
+    <div id="readerModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-obsidian-950/80 backdrop-blur-md transition-opacity duration-300">
+        <div class="glass-panel w-full max-w-2xl rounded-2xl border border-amber-500/30 shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
+            <!-- Modal Header -->
+            <div class="px-6 py-4 border-b border-slate-800/80 light:border-slate-200 flex justify-between items-center bg-obsidian-900/50 light:bg-slate-100/50">
+                <span class="text-xs font-semibold text-champagne-400 uppercase tracking-widest">Zibersegurtasun Terminoa</span>
+                <button id="closeReaderModalBtn" class="text-slate-400 hover:text-amber-400 p-1 rounded-lg transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content Body -->
+            <div class="p-6 sm:p-8 overflow-y-auto space-y-6">
+                <div>
+                    <h2 id="readerTitle" class="font-serif text-2xl sm:text-3xl font-bold text-slate-100 light:text-slate-900 leading-snug gold-gradient-text">
+                        Terminoaren izena
+                    </h2>
+                </div>
+
+                <div class="p-4 rounded-xl bg-amber-500/10 border-l-2 border-champagne-500">
+                    <p id="readerSummary" class="text-sm italic text-champagne-200 light:text-amber-900 font-medium">
+                        Laburpen azkarra...
+                    </p>
+                </div>
+
+                <div class="term-content text-slate-300 light:text-slate-700 text-sm leading-relaxed whitespace-pre-line space-y-3" id="readerContent">
+                    <!-- Detailed Basque concept content inserted dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Glossary Entries in Basque (Euskera)
+        const GLOSSARY_DATA = [
+            {
+                id: 'phishing',
+                title: 'Phishing',
+                summary: 'Gizarte-ingeniaritzako teknika, informazio konfidantziala eta kredentzialak lapurtzeko helburua duena.',
+                content: `Phishing-a zibereraso mota bat da, non eraso-egileak erakunde edo pertsona fidagarri baten identitatea ordezkatzen duen, biktimak informazio sentsiblea (adibidez, pasahitzak, banku-datuak edo kreditu-txartelen zenbakiak) eman dezan.
+
+### Ezaugarri Nagusiak:
+* **Mezu Alarma-eragileak:** Urgentzia edo mehatxu sentsazioa sortzen dute (adibidez, "zure kontua blokeatuko da").
+* **Esteka Faltsuak:** Benetako webguneen itxura bera duten orri iruzurtsuetara bideratzen dute biktima.
+* **Bide Ohikoenak:** Posta elektronikoa, SMS mezuak (Smishing) edo ahots-deiak (Vishing).
+
+### Babes Neurriak:
+1. Egiaztatu beti bidaltzailearen helbide elektroniko osoa.
+2. Ez egin klik susmagarriak diren esteketan.
+3. Egiaztatu webguneen URL helbideak eta ziurtagiri digitalak.`
+            },
+            {
+                id: 'biren-erasoa',
+                title: 'Biren erasoa (Man-in-the-Middle)',
+                summary: 'Komunikazio baten erdian eraso-egilea ezkutuan jartzen den eraso mota, datuak entzuteko edo aldatzeko.',
+                content: `Biren erasoa (Man-in-the-Middle edo MitM) zibersegurtasuneko eraso bat da, non erasotzaileak bi alderdiren arteko komunikazioa ezkutuan interceptatu eta bideratzen duen, bi komunikakideek beren artean zuzenean hitz egiten ari direla uste duten bitartean.
+
+### Eraso Motak:
+* **Wi-Fi Publiko Segogabeak:** Ziberdelagileek enkriptatu gabeko sareak erabiltzen dituzte trafikoa atzemateko.
+* **DNS Spoofing:** Biktimak webgune kaltegarrietara bideratzea DNS erregistroak aldatuz.
+* **ARP Spoofing:** Saretegi lokalean IP helbideak MAC helbide faltsuekin lotzea.
+
+### Babes Neurriak:
+1. Erabili beti VPN (Sare Pribatu Birtuala) Wi-Fi publikoetan.
+2. Ziurtatu bisitatzen dituzun orriek HTTPS protokoloa erabiltzen dutela.
+3. Ez egin transakzio garrantzitsurik babestu gabeko sareetan.`
+            },
+            {
+                id: 'troiarra',
+                title: 'Troiarra (Trojan)',
+                summary: 'Programa kaltegarria, erabilgarria edo legezkoa dela dirudiena, ordenagailuan sartzeko eta erasoak egiteko.',
+                content: `Troiarra (Trojan Horse) software kaltegarri (malware) mota bat da, software legitimo edo erabilgarri baten moduan mozorraturik aurkezten dena. Izena Greziako mitologiako Troiako Zalditik dator.
+
+### Nola Funtzionatzen Du?
+Birusak edo harrak ez bezala, troiarrek ez dute beren burua automatikoki erreplikatzen. Erabiltzaileak berak deskargatu eta exekutatu behar du, fitxategi edo programa babesgarria dela pentsatuz.
+
+### Ondorio Ohikoenak:
+* Ziberdelagileari atzeko ateak (backdoors) irekitzea.
+* Erabiltzailearen pasahitzak eta datu pertsonalak lapurtzea.
+* Sistema urrunetik kontrolatzea botnet baten zati bihurtuz.
+
+### Babes Neurriak:
+1. Deskargatu programak soilik iturburu ofizial eta egiaztatuetatik.
+2. Mantendu antibirusa eta sistema eragilea eguneratuta.`
+            },
+            {
+                id: 'backdoors-ak',
+                title: 'Backdoors-ak (Atzeko ateak)',
+                summary: 'Sistemaren autentifikazio arrunta saihestuz sartzeko bidea ematen duen sarbide sekretua.',
+                content: `Backdoor edo "Atzeko atea" sistema informatiko batean ezkutuan uzten den sarbide bide bat da, ohiko segurtasun-kontrolak eta autentifikazio-mekanismoak saihesteko aukera ematen duena.
+
+### Jatorria eta Motak:
+* **Hardware Backdoors:** Fabrikazio prozesuan txip edo gailuetan sartutakoak.
+* **Software Backdoors:** Garatzaileek mantentze-lanetarako utzitako zirrikituak edo malware bidez sortutakoak.
+
+### Arriskuak:
+Sistemaren jabeak jakin gabe, ziberdelagileek eduki guztietarako sarbide osoa lortu dezakete, kontrola hartuz, datuak erauziz edo sistema bera komando bidez urrunetik kudeatuz.
+
+### Babes Neurriak:
+1. Suhesi (Firewall) sendoak konfiguratu sarrera/irteerako trafikoa ikuskatzeko.
+2. Aldian-aldian segurtasun-auditoriak eta kode berrikuspenak egin.`
+            },
+            {
+                id: 'spyware-a',
+                title: 'Spyware-a',
+                summary: 'Erabiltzailearen jarduera ezkutuan monitorizatzen eta informazioa biltzen duen software kaltegarria.',
+                content: `Spyware-a erabiltzailearen baimenik gabe ordenagailuan instalatzen den malware mota da, haren ohiturak, informazio pertsonala eta sistema-jarduera ezkutuan grabatu eta hirugarrenei bidaltzeko.
+
+### Spyware Mota Nagusiak:
+* **Keylogger-ak:** Teklatuan idatzitako tekla bakoitza erregistratzen dute (pasahitzak detektatzeko).
+* **Adware-a:** Baimenik gabeko publizitatea erakutsi eta nabigatzailearen ohiturak segitzen ditu.
+* **InfoStealer-rak:** Nabigatzailean gordetako datuak eta cookie-ak lapurtzen dituzte.
+
+### Babes Neurriak:
+1. Ez onartu pop-up edo leiho azaleratuen baimen susmagarririk.
+2. Erabili spyware-aren aurkako babes espezifikoa duten segurtasun tresnak.`
+            },
+            {
+                id: 'stealer-rak',
+                title: 'Stealer-rak (InfoStealers)',
+                summary: 'Gailu batetik kredentzialak, saio-hasierak eta kripto-zorroen datuak biltzera bideratutako malware espezializatua.',
+                content: `InfoStealer edo Stealer-ra malware mota oso espezializatua da, helburu bakarra duena: infektatutako gailuan gordetako informazio konfidantziala azkar bildu eta ziberdelagilearen zerbitzarira helaraztea.
+
+### Zer Lapurtzen Dute?
+* Nabigatzaileetan gordetako erabiltzaile-izenak eta pasahitzak.
+* Banku-fakturazioko datuak eta kreditu-txartelak.
+* Kriptomoneta zorroen (crypto-wallets) gako pribatuak.
+* Saio-cookieak (autentifikazio bikoitza saihesteko).
+
+### Babes Neurriak:
+1. Ez gorde pasahitz sentsibleak nabigatzaileen biltegi integratuan; erabili pasahitz-kudeatzaile enkriptatuak.
+2. Erabili bi urratseko autentifikazioa (2FA) aplikazio guztietan.`
+            }
+        ];
+
+        /* Current State */
+        let searchQuery = '';
+
+        /* Initialize Lucide Icons & Event Listeners */
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCards();
+
+            // Search Filter Listener
+            document.getElementById('searchInput').addEventListener('input', (e) => {
+                searchQuery = e.target.value.toLowerCase().trim();
+                renderCards();
+            });
+
+            // Theme Toggle Listener
+            document.getElementById('themeToggleBtn').addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                document.documentElement.classList.toggle('light');
+            });
+
+            // Modal Close Listener
+            document.getElementById('closeReaderModalBtn').addEventListener('click', closeReaderModal);
+            document.getElementById('readerModal').addEventListener('click', (e) => {
+                if (e.target === document.getElementById('readerModal')) {
+                    closeReaderModal();
+                }
+            });
+
+            // Escape key listener for modal
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeReaderModal();
+            });
+        });
+
+        function renderCards() {
+            const container = document.getElementById('cardsContainer');
+            const emptyState = document.getElementById('emptyState');
+
+            const filtered = GLOSSARY_DATA.filter(item => {
+                return item.title.toLowerCase().includes(searchQuery) ||
+                       item.summary.toLowerCase().includes(searchQuery) ||
+                       item.content.toLowerCase().includes(searchQuery);
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            container.innerHTML = filtered.map(item => `
+                <div onclick="openReaderModal('${item.id}')" class="glass-panel gold-card-hover rounded-2xl p-6 flex flex-col justify-between cursor-pointer space-y-4 relative group">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-semibold text-champagne-400 uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20">
+                                Konzeptua
+                            </span>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 group-hover:text-champagne-400 transition-colors"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-slate-100 light:text-slate-900 group-hover:text-champagne-300 transition-colors">
+                            ${escapeHTML(item.title)}
+                        </h2>
+                        <p class="text-xs text-slate-300 light:text-slate-600 leading-relaxed">
+                            ${escapeHTML(item.summary)}
+                        </p>
+                    </div>
+
+                    <div class="pt-3 border-t border-slate-800/60 light:border-slate-200 flex items-center justify-between text-xs text-champagne-400/80 font-medium">
+                        <span>Irakurri xehetasunak</span>
+                        <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+                    </div>
+                </div>
+            `).join('');
+
+            lucide.createIcons();
+        }
+
+        function openReaderModal(id) {
+            const entry = GLOSSARY_DATA.find(e => e.id === id);
+            if (!entry) return;
+
+            document.getElementById('readerTitle').innerText = entry.title;
+            document.getElementById('readerSummary').innerText = entry.summary;
+            document.getElementById('readerContent').innerHTML = formatMarkdown(entry.content);
+
+            document.getElementById('readerModal').classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        function closeReaderModal() {
+            document.getElementById('readerModal').classList.add('hidden');
+        }
+
+        /* Simple Markdown Formatter Helper */
+        function formatMarkdown(text) {
+            let html = escapeHTML(text);
+            // Headers
+            html = html.replace(/### (.*?)\n/g, '<h3>$1</h3>');
+            // Bold
+            html = html.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-100 light:text-slate-900 font-semibold">$1</strong>');
+            // Lists
+            html = html.replace(/^\* (.*$)/gim, '<li>$1</li>');
+            html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
+            
+            return html;
+        }
+
+        /* Escape HTML Helper */
+        function escapeHTML(str) {
+            return str ? str.replace(/[&<>'"]/g, 
+                tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+            ) : '';
+        }
+    </script>
+</body>
+>>>>>>> bc02f469152fb523c8024de20a08c656f7f6e0ab
 </html>
