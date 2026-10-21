@@ -52,31 +52,48 @@
             height: 6px;
         }
         ::-webkit-scrollbar-track {
+            background: rgba(241, 245, 249, 0.8);
+        }
+        .dark ::-webkit-scrollbar-track {
             background: rgba(9, 13, 20, 0.8);
         }
         ::-webkit-scrollbar-thumb {
-            background: rgba(212, 175, 55, 0.25);
+            background: rgba(180, 83, 9, 0.3);
             border-radius: 4px;
         }
+        .dark ::-webkit-scrollbar-thumb {
+            background: rgba(212, 175, 55, 0.25);
+        }
         ::-webkit-scrollbar-thumb:hover {
+            background: rgba(180, 83, 9, 0.6);
+        }
+        .dark ::-webkit-scrollbar-thumb:hover {
             background: rgba(212, 175, 55, 0.5);
         }
 
+        /* Glass Panel Light & Dark Modes */
         .glass-panel {
-            background: rgba(15, 23, 42, 0.75);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
         }
-        
-        html.light .glass-panel {
-            background: rgba(255, 255, 255, 0.85);
+        .dark .glass-panel {
+            background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(212, 175, 55, 0.25);
+            border: 1px solid rgba(212, 175, 55, 0.18);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
         }
 
+        /* Responsive Gradient Text */
         .gold-gradient-text {
+            background: linear-gradient(135deg, #92400E 0%, #D97706 50%, #B45309 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .dark .gold-gradient-text {
             background: linear-gradient(135deg, #FFF0D0 0%, #D4AF37 50%, #997B15 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -87,17 +104,21 @@
         }
         .gold-card-hover:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.15);
-            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 12px 28px -5px rgba(217, 119, 6, 0.15);
+            border-color: rgba(217, 119, 6, 0.5);
+        }
+        .dark .gold-card-hover:hover {
+            box-shadow: 0 12px 28px -5px rgba(212, 175, 55, 0.2);
+            border-color: rgba(212, 175, 55, 0.45);
         }
     </style>
 </head>
-<body class="bg-obsidian-950 text-slate-100 min-h-screen font-sans transition-colors duration-300 dark:bg-obsidian-950 dark:text-slate-100 light:bg-slate-50 light:text-slate-900 selection:bg-champagne-500/30 selection:text-champagne-300">
+<body class="bg-slate-50 text-slate-900 dark:bg-obsidian-950 dark:text-slate-100 min-h-screen font-sans transition-colors duration-300 selection:bg-amber-500/20 selection:text-amber-900 dark:selection:bg-champagne-500/30 dark:selection:text-champagne-300">
 
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         
         <!-- Header Section: Title, Search & Theme Toggle -->
-        <header class="glass-panel rounded-2xl p-4 sm:p-6 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+        <header class="glass-panel rounded-2xl p-4 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
             <h1 class="font-serif text-3xl sm:text-4xl font-bold tracking-tight gold-gradient-text flex-shrink-0">
                 Hiztegia
             </h1>
@@ -105,12 +126,12 @@
             <div class="flex items-center gap-3 w-full sm:w-auto flex-1 max-w-md justify-end">
                 <!-- Search Input -->
                 <div class="relative w-full">
-                    <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                    <input type="text" id="searchInput" placeholder="Bilatu kontzeptua..." class="w-full pl-10 pr-4 py-2 bg-obsidian-900/80 light:bg-slate-100 border border-slate-700/60 light:border-slate-300 rounded-xl text-sm text-slate-100 light:text-slate-900 placeholder-slate-500 focus:outline-none focus:border-champagne-500/60 transition-all duration-200" />
+                    <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500"></i>
+                    <input type="text" id="searchInput" placeholder="Bilatu kontzeptua..." class="w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-obsidian-900/80 border border-slate-300 dark:border-slate-700/60 rounded-xl text-sm text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-amber-500/80 dark:focus:border-champagne-500/60 transition-all duration-200" />
                 </div>
 
                 <!-- Theme Toggle Button -->
-                <button id="themeToggleBtn" title="Aldatu Gaia" class="p-2.5 rounded-xl bg-obsidian-900/80 light:bg-slate-200 hover:bg-obsidian-800 text-amber-400 border border-amber-500/20 transition-all duration-200 flex-shrink-0">
+                <button id="themeToggleBtn" title="Aldatu Gaia" class="p-2.5 rounded-xl bg-amber-50 dark:bg-obsidian-900/80 hover:bg-amber-100 dark:hover:bg-obsidian-800 text-amber-700 dark:text-amber-400 border border-amber-300/60 dark:border-amber-500/20 transition-all duration-200 flex-shrink-0">
                     <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
                     <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
                 </button>
@@ -124,22 +145,22 @@
 
             <!-- Empty Search State -->
             <div id="emptyState" class="hidden glass-panel rounded-2xl p-12 text-center flex flex-col items-center justify-center space-y-3 my-8">
-                <div class="w-12 h-12 rounded-full bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-champagne-400">
+                <div class="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-500/10 border border-amber-300 dark:border-amber-500/20 flex items-center justify-center text-amber-700 dark:text-champagne-400">
                     <i data-lucide="search-x" class="w-6 h-6"></i>
                 </div>
-                <h3 class="font-serif text-lg font-bold text-slate-200 light:text-slate-800">Ez da emaitzarik aurkitu</h3>
-                <p class="text-xs text-slate-400 max-w-xs">Saiatu beste bilaketa-terminoren bat erabiltzen.</p>
+                <h3 class="font-serif text-lg font-bold text-slate-900 dark:text-slate-100">Ez da emaitzarik aurkitu</h3>
+                <p class="text-xs text-slate-600 dark:text-slate-400 max-w-xs">Saiatu beste bilaketa-terminoren bat erabiltzen.</p>
             </div>
         </main>
     </div>
 
     <!-- Modal: Concept Reader View -->
-    <div id="readerModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-obsidian-950/80 backdrop-blur-md transition-opacity duration-300">
-        <div class="glass-panel w-full max-w-2xl rounded-2xl border border-amber-500/30 shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
+    <div id="readerModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/60 dark:bg-obsidian-950/80 backdrop-blur-md transition-opacity duration-300">
+        <div class="glass-panel w-full max-w-2xl rounded-2xl border border-amber-400/40 dark:border-amber-500/30 shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
             <!-- Modal Header -->
-            <div class="px-6 py-4 border-b border-slate-800/80 light:border-slate-200 flex justify-between items-center bg-obsidian-900/50 light:bg-slate-100/50">
-                <span class="text-xs font-semibold text-champagne-400 uppercase tracking-widest">Zibersegurtasun Terminoa</span>
-                <button id="closeReaderModalBtn" class="text-slate-400 hover:text-amber-400 p-1 rounded-lg transition-colors">
+            <div class="px-6 py-4 border-b border-slate-200 dark:border-slate-800/80 flex justify-between items-center bg-slate-100/90 dark:bg-obsidian-900/50">
+                <span class="text-xs font-bold text-amber-800 dark:text-champagne-400 uppercase tracking-widest">Zibersegurtasun Terminoa</span>
+                <button id="closeReaderModalBtn" class="text-slate-500 hover:text-amber-700 dark:text-slate-400 dark:hover:text-amber-400 p-1 rounded-lg transition-colors">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
             </div>
@@ -147,18 +168,18 @@
             <!-- Modal Content Body -->
             <div class="p-6 sm:p-8 overflow-y-auto space-y-6">
                 <div>
-                    <h2 id="readerTitle" class="font-serif text-2xl sm:text-3xl font-bold text-slate-100 light:text-slate-900 leading-snug gold-gradient-text">
+                    <h2 id="readerTitle" class="font-serif text-2xl sm:text-3xl font-bold leading-snug gold-gradient-text">
                         Terminoaren izena
                     </h2>
                 </div>
 
-                <div class="p-4 rounded-xl bg-amber-500/10 border-l-2 border-champagne-500">
-                    <p id="readerSummary" class="text-sm italic text-champagne-200 light:text-amber-900 font-medium">
+                <div class="p-4 rounded-xl bg-amber-50 dark:bg-amber-500/10 border-l-4 border-amber-500">
+                    <p id="readerSummary" class="text-sm italic text-amber-950 dark:text-champagne-200 font-medium">
                         Laburpen azkarra...
                     </p>
                 </div>
 
-                <div class="term-content text-slate-300 light:text-slate-700 text-sm leading-relaxed space-y-3" id="readerContent">
+                <div class="term-content text-slate-800 dark:text-slate-300 text-sm leading-relaxed space-y-3" id="readerContent">
                     <!-- Detailed Basque concept content & real incidents inserted dynamically -->
                 </div>
             </div>
@@ -185,7 +206,7 @@
 3. Egiaztatu webguneen URL helbideak eta ziurtagiri digitalak.
 
 ### 🔴 Gertaera Erreala: Evaldas Rimasauskas (2013-2015)
-Evaldas Rimasauskas lituaniarrak ziber-iruzur erraldoia burutu zuen Google eta Facebook teknologia konpainia nagusien aurka. Spear phishing bidez, Quanta Computer Asia-ko hornitzaile ezagunaren faktura eta posta elektroniko faltsuak bidali zizkien bi konpainia multinazional hauei. Iruzur honen bidez, **120 milioi dolar baino gehiago** bereganatu zituen bi urtean, teknologia-erraldoiak ere gizarte-ingeniaritzaren aurrean babesgabe egon daitezkeela erakutsiz.`
+Evaldas Rimasauskas lituaniarrak ziber-iruzur erraldoia burutu zuen Google eta Facebook teknologia konpainia nagusien aurka. Spear phishing bidez, Quanta Computer Asia-ko hornitzaile ezagunaren faktura eta posta elektroniko faltsuak bidali zizkien bi konpainia multinazional haeuri. Iruzur honen bidez, **120 milioi dolar baino gehiago** bereganatu zituen bi urtean, teknologia-erraldoiak ere gizarte-ingeniaritzaren aurrean babesgabe egon daitezkeela erakutsiz.`
             },
             {
                 id: 'biren-erasoa',
@@ -283,6 +304,61 @@ NSO Group konpainia israeldarrak garatutako Pegasus programa historiako spyware 
 
 ### 🔴 Gertaera Erreala: RedLine Stealer eta Uber / Rockstar Games Erasoak (2022)
 RedLine Stealer gaur egun zabalduen dagoen InfoStealer-etako bat da. Malware honek nabigatzaileen saio-cookieak eta pasahitzak erauzten ditu. 2022an, Uber eta Rockstar Games (GTA VI bideojokoaren iturburu-kodearen filtrazioa eragin zuena) konpainiek eraso larriak jasan zituzten. Erasotzaileek kanpoko langile baten ordenagailu pertsonaletik RedLine bidez lapurtutako **saio-cookieak** erabili zituzten barne-sareetan sartzeko, 2FA autentifikazioa erabat saihestuz.`
+            },
+            {
+                id: 'koobface',
+                title: 'Koobface',
+                summary: 'Sare sozialetan hedatzen zen harra (worm), ordenagailuak infektatu eta botnet baten zati bihurtzen zituena.',
+                content: `Koobface (izena "Facebook" hitzaren anagrama batetik dator) sare sozial nagusien bidez (Facebook, MySpace, Twitter, YouTube) zabaltzen zen malware eta har informatiko ezaguna da.
+
+### Nola Funtzionatzen Zuen?
+* **Sare Sozialetako Iruzurrak:** Biktimaren kontutik bere lagunei mezu erakargarriak bidaltzen zizkien (adibidez: "Aizpa, ikusi al duzu bideo hau zutaz?").
+* **Erreproduzitzaile Faltsua:** Estekan sakatzean, bideoa ikusteko "Flash Player eguneratu" behar zela esaten zuen webgune kaltegarri batera bideratzen zituen erabiltzaileak.
+* **Mendeko Gailua:** Instalatu ondorioz, ordenagailua ziberdelagileen mende geratzen zen eta haien aginduak jarraitzen zituen.
+
+### Babes Neurriak:
+1. Ez egin klik sare sozialetan lagunek bidalitako esteka arraro edo ezezagunetan.
+2. Ez deskargatu plugin edo edukirik ziurtatutako iturburuetatik kanpo.
+
+### 🔴 Gertaera Erreala: "Ali Baba & 40 404s" Taldeari Lotutako Botnet-a (2008-2010)
+2008 eta 2010 artean, Koobface-k milioika ordenagailu infektatu zituen mundu osoan, ziber-historiako sare sozial bidezko botnet handienetako bat sortuz. Erasotzaileek kutsatutako ordenagailuak erabili zituzten klik-iruzurra egiteko (click fraud), publizitate faltsua erakusteko eta bilaketen emaitzak manipulatzeko. Jarduera honi esker, taldeak **milioika dolar** lortu zituen zibersegurtasun-ikertzaileek haien azpiegitura desmuntatu aurretik.`
+            },
+            {
+                id: 'botnet',
+                title: 'Botnet',
+                summary: 'Ziberdelagile baten urruneko kontrolpean dauden infektatutako gailu eta ordenagailuen sarea.',
+                content: `Botnet bat ("robot network" hitzen elkarketatik) ziberdelagile batek (botmaster-a) malware bidez infektatu eta urrunetik kudeatzen dituen gailuen sare zabal bat da. Gailu hauek "zombie" moduan ezagutzen dira, jabeek jakin gabe jarduten baitute.
+
+### Zer Tartek erabili dezakete Botnet bat?
+* **DDoS Erasoak:** Milioika gailuk aldi berean webgune edo zerbitzari baten aurka eskaerak bidaltzea, zerbitzua erortzeraino.
+* **Spam Bidalketa:** Milioika mezu elektroniko iruzurgarri bidaltzea segundoko.
+* **Cryptojacking:** Kutsatutako gailuen prozesadoreak kriptomonedak meatzeko ezkutuan erabiltzea.
+
+### Babes Neurriak:
+1. Aldatu beti gailu berrien (routerrak, IoT gailuak, segurtasun-kamerak) fabrika-pasahitzak.
+2. Mantendu gailu guztien firmwarea eta sistema eragilea eguneratuta.
+
+### 🔴 Gertaera Erreala: Mirai Botnet-aren Eraso Masiboa (2016)
+2016ko urrian, Mirai izeneko botnet-ak Internet osoaren zati handi bat paralizatu zuen. Mirai-k segurtasun-kamera eta router babesgabeak kutsatu zituen (fabrikako pasahitz lehenetsiak erabiliz) **600.000 gailu baino gehiagoko sarea** osatuz. Mirai-k Dyn DNS zerbitzuaren aurkako DDoS eraso erraldoia (1.2 Tbps) abiatu zuen. Ondorioz, ordu batzuetan zehar Interneteko zerbitzu nagusiak erori ziren mundu osoan, besteak beste, **Twitter, Netflix, Spotify, Reddit eta PlayStation Network** lineatik kanpo utziz.`
+            },
+            {
+                id: 'indar-gordina',
+                title: 'Indar gordineko erasoa (Fuerza bruta)',
+                summary: 'Proba eta errore bidez pasahitzak edo gakoak lortzeko teknika, konbinazio guztiak jarraian probatuz.',
+                content: `Indar gordineko erasoa (Brute Force Attack) zibersegurtasuneko metodo automatizatua da, non programa informatiko batek pasahitz bat, PIN kode bat edo gako enkriptatu bat aurkitzeko konbinazio posible guztiak banan-banan probatzen dituen asmatu arte.
+
+### Indar Gordin Mota Nagusiak:
+* **Hiztegi Erasoa (Dictionary Attack):** Hiztegi batean agertzen diren hitzak edo pasahitz erabilienak soilik probatzea.
+* **Credential Stuffing:** Beste webgune batzuetan filtratutako erabiltzaile/pasahitz bikoteak milaka plataformetan automatikoki saiatzea.
+* **Brute Force Osoa:** Karaktereen konbinazio guztiak (letrak, zenbakiak, ikurrak) ordenan probatzea.
+
+### Babes Neurriak:
+1. Erabili pasahitz luzeak, konplexuak eta zerbitzu bakoitzean ezberdinak direnak.
+2. Ezarri saio-hasieran saiakera kopurua mugatzeko mekanismoak (account lockout / captcha).
+3. Aktibatu bi urratseko autentifikazioa (2FA) kontu guztietan.
+
+### 🔴 Gertaera Erreala: GitHub-eko Credential Stuffing Erasoa (2013)
+2013ko uztailean, GitHub garatzaileen plataformak tamaina handiko indar gordineko erasoa jasan zuen. Ziberdelagileek beste zerbitzu batzuetatik filtratutako 40.000 pasahitz erabilien zerrenda bat erabili zuten automatikoki GitHub-eko kontuetan sartzen saiatzeko. Erasotzaileek ehunka garatzaileren kontuetan sartzea lortu zuten. Horren ondorioz, GitHub-ek pasahitz guztiak berrezarri zituen eta **bi urratseko autentifikazioa (2FA)** ezarri zien bere erabiltzaile guztiei.`
             }
         ];
 
@@ -302,7 +378,6 @@ RedLine Stealer gaur egun zabalduen dagoen InfoStealer-etako bat da. Malware hon
             // Theme Toggle Listener
             document.getElementById('themeToggleBtn').addEventListener('click', () => {
                 document.documentElement.classList.toggle('dark');
-                document.documentElement.classList.toggle('light');
             });
 
             // Modal Close Listener
@@ -340,20 +415,20 @@ RedLine Stealer gaur egun zabalduen dagoen InfoStealer-etako bat da. Malware hon
                 <div onclick="openReaderModal('${item.id}')" class="glass-panel gold-card-hover rounded-2xl p-6 flex flex-col justify-between cursor-pointer space-y-4 relative group">
                     <div class="space-y-2">
                         <div class="flex items-center justify-between">
-                            <span class="text-[10px] font-semibold text-champagne-400 uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20">
+                            <span class="text-[11px] font-bold text-amber-800 dark:text-champagne-400 uppercase tracking-widest px-2.5 py-1 rounded-full bg-amber-100 dark:bg-amber-500/10 border border-amber-300 dark:border-amber-500/20">
                                 Konzeptua
                             </span>
-                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 group-hover:text-champagne-400 transition-colors"></i>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-amber-700 dark:group-hover:text-champagne-400 transition-colors"></i>
                         </div>
-                        <h2 class="font-serif text-xl font-bold text-slate-100 light:text-slate-900 group-hover:text-champagne-300 transition-colors">
+                        <h2 class="font-serif text-xl font-bold text-slate-900 dark:text-slate-100 group-hover:text-amber-700 dark:group-hover:text-champagne-300 transition-colors">
                             ${escapeHTML(item.title)}
                         </h2>
-                        <p class="text-xs text-slate-300 light:text-slate-600 leading-relaxed">
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
                             ${escapeHTML(item.summary)}
                         </p>
                     </div>
 
-                    <div class="pt-3 border-t border-slate-800/60 light:border-slate-200 flex items-center justify-between text-xs text-champagne-400/80 font-medium">
+                    <div class="pt-3 border-t border-slate-200 dark:border-slate-800/60 flex items-center justify-between text-xs text-amber-800 dark:text-champagne-400/90 font-semibold">
                         <span>Irakurri xehetasunak eta adibideak</span>
                         <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
                     </div>
@@ -379,21 +454,21 @@ RedLine Stealer gaur egun zabalduen dagoen InfoStealer-etako bat da. Malware hon
             document.getElementById('readerModal').classList.add('hidden');
         }
 
-        /* Formatting Helper for Markdown Content */
+        /* Formatting Helper for Markdown Content with High Light/Dark Contrast */
         function formatMarkdown(text) {
             let html = escapeHTML(text);
             
             // Headings (### )
-            html = html.replace(/### (.*?)\n/g, '<h3 class="font-serif font-bold text-champagne-400 text-base mt-5 mb-2 border-b border-amber-500/20 pb-1">$1</h3>');
+            html = html.replace(/### (.*?)\n/g, '<h3 class="font-serif font-bold text-amber-900 dark:text-champagne-400 text-base mt-5 mb-2 border-b border-amber-200 dark:border-amber-500/20 pb-1">$1</h3>');
             
             // Bold (**text**)
-            html = html.replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-slate-100 light:text-slate-900">$1</strong>');
+            html = html.replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-slate-900 dark:text-slate-100">$1</strong>');
             
             // Bullet points (* )
-            html = html.replace(/^\* (.*$)/gim, '<li class="ml-4 list-disc text-slate-300 light:text-slate-700 my-1">$1</li>');
+            html = html.replace(/^\* (.*$)/gim, '<li class="ml-4 list-disc text-slate-800 dark:text-slate-300 my-1">$1</li>');
             
             // Numbered list (1. )
-            html = html.replace(/^(\d+)\. (.*$)/gim, '<li class="ml-4 list-decimal text-slate-300 light:text-slate-700 my-1">$2</li>');
+            html = html.replace(/^(\d+)\. (.*$)/gim, '<li class="ml-4 list-decimal text-slate-800 dark:text-slate-300 my-1">$2</li>');
 
             // Paragraph line breaks
             html = html.replace(/\n\n/g, '</p><p class="my-2 leading-relaxed">');
