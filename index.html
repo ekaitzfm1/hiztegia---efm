@@ -138,10 +138,32 @@
             </div>
         </header>
 
-        <main>
-            <div id="cardsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Dynamic concept cards inserted via JS -->
-            </div>
+        <main class="space-y-10">
+            <!-- Temario 1 Section -->
+            <section id="temario1Section" class="space-y-4">
+                <div class="flex items-center gap-3 border-b border-amber-500/30 pb-2">
+                    <span class="w-2.5 h-6 bg-amber-500 rounded-full inline-block"></span>
+                    <h2 class="font-serif text-xl sm:text-2xl font-bold gold-gradient-text">
+                        1. Temarioa: Software Kaltegarria eta Iruzurrak
+                    </h2>
+                </div>
+                <div id="temario1Container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Cards for Temario 1 -->
+                </div>
+            </section>
+
+            <!-- Temario 2 Section -->
+            <section id="temario2Section" class="space-y-4">
+                <div class="flex items-center gap-3 border-b border-amber-500/30 pb-2">
+                    <span class="w-2.5 h-6 bg-amber-500 rounded-full inline-block"></span>
+                    <h2 class="font-serif text-xl sm:text-2xl font-bold gold-gradient-text">
+                        2. Temarioa: Sare Erasoak eta Botnet-ak
+                    </h2>
+                </div>
+                <div id="temario2Container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Cards for Temario 2 -->
+                </div>
+            </section>
 
             <!-- Empty Search State -->
             <div id="emptyState" class="hidden glass-panel rounded-2xl p-12 text-center flex flex-col items-center justify-center space-y-3 my-8">
@@ -187,18 +209,20 @@
     </div>
 
     <script>
-        // Glossary Entries in Basque (Euskera) with Real-World Incidents (Gertaera Erreala)
+        // Glossary Entries in Basque (Euskera) separated into 2 Syllabi / Temarioak
         const GLOSSARY_DATA = [
+            /* TEMARIO 1: SOFTWARE KALTEGARRIA ETA IRUZURRAK */
             {
                 id: 'phishing',
+                temario: 1,
                 title: 'Phishing-a',
-                summary: 'Gizarte-ingeniaritzako teknika, informazio konfidantziala eta kredentzialak lapurtzeko helburua duena.',
+                summary: 'Gizarte-ingeniaritzako teknika, informazio konfidentziala eta kredentzialak lapurtzeko helburua duena.',
                 content: `Phishing-a zibereraso mota bat da, non eraso-egileak erakunde edo pertsona fidagarri baten identitatea ordezkatzen duen, biktimak informazio sentsiblea (adibidez, pasahitzak, banku-datuak edo kreditu-txartelen zenbakiak) eman dezan.
 
 ### Ezaugarri Nagusiak:
-* **Mezu Alarma-eragileak:** Urgentzia edo mehatxu sentsazioa sortzen dute (adibidez, "zure kontua blokeatuko da").
-* **Esteka Faltsuak:** Benetako webguneen itxura bera duten orri iruzurtsuetara bideratzen dute biktima.
-* **Bide Ohikoenak:** Posta elektronikoa, SMS mezuak (Smishing) edo ahots-deiak (Vishing).
+* **Mezu alarma-eragileak:** Urgentzia edo mehatxu sentsazioa sortzen dute (adibidez, "zure kontua blokeatuko da").
+* **Esteka faltsuak:** Benetako webguneen itxura bera duten orri iruzurtsuetara bideratzen dute biktima.
+* **Bide ohikoenak:** Posta elektronikoa, SMS mezuak (Smishing) edo ahots-deiak (Vishing).
 
 ### Babes Neurriak:
 1. Egiaztatu beti bidaltzailearen helbide elektroniko osoa.
@@ -206,18 +230,19 @@
 3. Egiaztatu webguneen URL helbideak eta ziurtagiri digitalak.
 
 ### 🔴 Gertaera Erreala: Evaldas Rimasauskas (2013-2015)
-Evaldas Rimasauskas lituaniarrak ziber-iruzur erraldoia burutu zuen Google eta Facebook teknologia konpainia nagusien aurka. Spear phishing bidez, Quanta Computer Asia-ko hornitzaile ezagunaren faktura eta posta elektroniko faltsuak bidali zizkien bi konpainia multinazional haueri. Iruzur honen bidez, **120 milioi dolar baino gehiago** bereganatu zituen bi urtean, teknologia-erraldoiak ere gizarte-ingeniaritzaren aurrean babesgabe egon daitezkeela erakutsiz.`
+Evaldas Rimasauskas lituaniarrak ziber-iruzur erraldoia burutu zuen Google eta Facebook teknologia-konpainia nagusien aurka. Spear phishing bidez, Quanta Computer Asia-ko hornitzaile ezagunaren faktura eta posta elektroniko faltsuak bidali zizkien bi konpainia multinazional hauei. Iruzur honen bidez, **120 milioi dolar baino gehiago** bereganatu zituen bi urtean, teknologia-erraldoiak ere gizarte-ingeniaritzaren aurrean babesgabe egon daitezkeela erakutsiz.`
             },
             {
                 id: 'biren-erasoa',
-                title: 'Biren erasoa (Man-in-the-Middle)',
+                temario: 1,
+                title: 'Bitartekoaren erasoa (Man-in-the-Middle)',
                 summary: 'Komunikazio baten erdian eraso-egilea ezkutuan jartzen den eraso mota, datuak entzuteko edo aldatzeko.',
-                content: `Biren erasoa (Man-in-the-Middle edo MitM) zibersegurtasuneko eraso bat da, non erasotzaileak bi alderdiren arteko komunikazioa ezkutuan interceptatu eta bideratzen duen, bi komunikakideek beren artean zuzenean hitz egiten ari direla uste duten bitartean.
+                content: `Bitartekoaren erasoa (Man-in-the-Middle edo MitM) zibersegurtasuneko eraso bat da, non erasotzaileak bi alderdiren arteko komunikazioa ezkutuan interceptatu eta bideratzen duen, bi komunikakideek beren artean zuzenean hitz egiten ari direla uste duten bitartean.
 
 ### Eraso Motak:
-* **Wi-Fi Publiko Segogabeak:** Ziberdelagileek enkriptatu gabeko sareak erabiltzen dituzte trafikoa atzemateko.
+* **Wi-Fi publiko segurtasunik gabeak:** Ziberdelagileek enkriptatu gabeko sareak erabiltzen dituzte trafikoa atzemateko.
 * **DNS Spoofing:** Biktimak webgune kaltegarrietara bideratzea DNS erregistroak aldatuz.
-* **ARP Spoofing:** Saretegi lokalean IP helbideak MAC helbide faltsuekin lotzea.
+* **ARP Spoofing:** Sare lokalean IP helbideak MAC helbide faltsuekin lotzea.
 
 ### Babes Neurriak:
 1. Erabili beti VPN (Sare Pribatu Birtuala) Wi-Fi publikoetan.
@@ -229,15 +254,16 @@ Evaldas Rimasauskas lituaniarrak ziber-iruzur erraldoia burutu zuen Google eta F
             },
             {
                 id: 'troiarra',
+                temario: 1,
                 title: 'Troiarra (Trojan)',
                 summary: 'Programa kaltegarria, erabilgarria edo legezkoa dela dirudiena, ordenagailuan sartzeko eta erasoak egiteko.',
                 content: `Troiarra (Trojan Horse) software kaltegarri (malware) mota bat da, software legitimo edo erabilgarri baten moduan mozorraturik aurkezten dena. Izena Greziako mitologiako Troiako Zalditik dator.
 
 ### Nola Funtzionatzen Du?
-Birusak edo harrak ez bezala, troiarrek ez dute beren burua automatikoki erreplikatzen. Erabiltzaileak berak deskargatu eta exekutatu behar du, fitxategi edo programa babesgarria dela pentsatuz.
+Birusak edo harrak ez bezala, troiarrek ez dute beren burua automatikoki erreplikatzen. Erabiltzaileak berak deskargatu eta exekutatu behar du, fitxategi edo programa fidagarria dela pentsatuz.
 
 ### Ondorio Ohikoenak:
-* Ziberdelagileari atzeko ateak (backdoors) irekitzea.
+* Ziberdelagileari atzeko ateak (backdoor-ak) irekitzea.
 * Erabiltzailearen pasahitzak eta datu pertsonalak lapurtzea.
 * Sistema urrunetik kontrolatzea botnet baten zati bihurtuz.
 
@@ -250,12 +276,13 @@ ZeuS troiarra historiako banku-malware ospetsuenetako bat izan zen. Erabiltzaile
             },
             {
                 id: 'backdoors-ak',
-                title: 'Backdoors-ak (Atzeko ateak)',
+                temario: 1,
+                title: 'Atzeko ateak (Backdoors)',
                 summary: 'Sistemaren autentifikazio arrunta saihestuz sartzeko bidea ematen duen sarbide sekretua.',
-                content: `Backdoor edo "Atzeko atea" sistema informatiko batean ezkutuan uzten den sarbide bide bat da, ohiko segurtasun-kontrolak eta autentifikazio-mekanismoak saihesteko aukera ematen duena.
+                content: `Backdoor edo "Atzeko atea" sistema informatiko batean ezkutuan uzten den sarbide-bidea da, ohiko segurtasun-kontrolak eta autentifikazio-mekanismoak saihesteko aukera ematen duena.
 
 ### Jatorria eta Motak:
-* **Hardware Backdoors:** Fabrikazio prozesuan txip edo gailuetan sartutakoak.
+* **Hardware Backdoors:** Fabrikazio-prozesuan txip edo gailuetan sartutakoak.
 * **Software Backdoors:** Garatzaileek mantentze-lanetarako utzitako zirrikituak edo malware bidez sortutakoak.
 
 ### Arriskuak:
@@ -263,13 +290,14 @@ Sistemaren jabeak jakin gabe, ziberdelagileek eduki guztietarako sarbide osoa lo
 
 ### Babes Neurriak:
 1. Suhesi (Firewall) sendoak konfiguratu sarrera/irteerako trafikoa ikuskatzeko.
-2. Aldian-aldian segurtasun-auditoriak eta kode berrikuspenak egin.
+2. Aldian-aldian segurtasun-auditoriak eta kode-berrikuspenak egin.
 
 ### 🔴 Gertaera Erreala: SolarWinds SUNBURST Erasoa (2020)
 2020ko abenduan, historiako hornikuntza-katearen eraso handienetako bat argitara eman zen. Erasotzaileek SolarWinds konpainiaren Orion kudeaketa-softwarearen eguneratze ofizialean atzeko ate ezkutu bat (SUNBURST) txertatu zuten. Ondorioz, **18.000 erakunde baino gehiagok** (AEBetako Segurtasun Nazionaleko Saila, Ogasuna eta multinazional handiak) eguneratze kutsatua instalatu zuten, ziberespioiei hilabetez haien barne-sareetan sartzeko bidea emanez.`
             },
             {
                 id: 'spyware-a',
+                temario: 1,
                 title: 'Spyware-a',
                 summary: 'Erabiltzailearen jarduera ezkutuan monitorizatzen eta informazioa biltzen duen software kaltegarria.',
                 content: `Spyware-a erabiltzailearen baimenik gabe ordenagailuan edo mugikorrean instalatzen den malware mota da, haren ohiturak, informazio pertsonala eta sistema-jarduera ezkutuan grabatu eta hirugarrenei bidaltzeko.
@@ -277,25 +305,26 @@ Sistemaren jabeak jakin gabe, ziberdelagileek eduki guztietarako sarbide osoa lo
 ### Spyware Mota Nagusiak:
 * **Keylogger-ak:** Teklatuan idatzitako tekla bakoitza erregistratzen dute (pasahitzak detektatzeko).
 * **Adware-a:** Baimenik gabeko publizitatea erakutsi eta nabigatzailearen ohiturak segitzen ditu.
-* **Espioitza Mugikorra:** Kamara, mikrofonoa eta GPS kokapena urrunetik aktibatzen dituzten aplikazioak.
+* **Espioitza Mugikorra:** Kamera, mikrofonoa eta GPS kokapena urrunetik aktibatzen dituzten aplikazioak.
 
 ### Babes Neurriak:
 1. Ez onartu pop-up edo leiho azaleratuen baimen susmagarririk.
-2. Erabili spyware-aren aurkako babes espezifikoa duten segurtasun tresnak.
+2. Erabili spyware-aren aurkako babes espezifikoa duten segurtasun-tresnak.
 
 ### 🔴 Gertaera Erreala: Pegasus Spyware-a (NSO Group)
 NSO Group konpainia israeldarrak garatutako Pegasus programa historiako spyware boteretsuenetako bat da. Zero-click ahuleziak erabiliz (biktima ezer sakatu gabe), Pegasus gailu mugikorretan ezkutuan instalatzen zen. Behin barruan, mezu enkriptatuak, deien grabazioak, argazkiak eta mikrofonoa ezkutuan atzitzen zituen. Mundu osoko **ehunka kazetari, giza eskubideen defendatzaile eta politikari garrantzitsu** ezkutuan ikuskatzeko erabili zen.`
             },
             {
                 id: 'stealer-rak',
-                title: 'Stealer-rak (InfoStealers)',
+                temario: 1,
+                title: 'Stealer-ak (InfoStealers)',
                 summary: 'Gailu batetik kredentzialak, saio-hasierak eta kripto-zorroen datuak biltzera bideratutako malware espezializatua.',
-                content: `InfoStealer edo Stealer-ra malware mota oso espezializatua da, helburu bakarra duena: infektatutako gailuan gordetako informazio konfidantziala azkar bildu eta ziberdelagilearen zerbitzarira helaraztea.
+                content: `InfoStealer edo Stealer-a malware mota oso espezializatua da, helburu bakarra duena: infektatutako gailuan gordetako informazio konfidentziala azkar bildu eta ziberdelagilearen zerbitzarira helaraztea.
 
 ### Zer Lapurtzen Dute?
 * Nabigatzaileetan gordetako erabiltzaile-izenak eta pasahitzak.
 * Banku-fakturazioko datuak eta kreditu-txartelak.
-* Kriptomoneta zorroen (crypto-wallets) gako pribatuak.
+* Kriptomoneta-zorroen (crypto-wallets) gako pribatuak.
 * Saio-cookieak (bi urratseko autentifikazioa edo 2FA saihesteko).
 
 ### Babes Neurriak:
@@ -305,16 +334,19 @@ NSO Group konpainia israeldarrak garatutako Pegasus programa historiako spyware 
 ### 🔴 Gertaera Erreala: RedLine Stealer eta Uber / Rockstar Games Erasoak (2022)
 RedLine Stealer gaur egun zabalduen dagoen InfoStealer-etako bat da. Malware honek nabigatzaileen saio-cookieak eta pasahitzak erauzten ditu. 2022an, Uber eta Rockstar Games (GTA VI bideojokoaren iturburu-kodearen filtrazioa eragin zuena) konpainiek eraso larriak jasan zituzten. Erasotzaileek kanpoko langile baten ordenagailu pertsonaletik RedLine bidez lapurtutako **saio-cookieak** erabili zituzten barne-sareetan sartzeko, 2FA autentifikazioa erabat saihestuz.`
             },
+
+            /* TEMARIO 2: SARE ERASOAK ETA BOTNET-AK */
             {
                 id: 'koobface',
+                temario: 2,
                 title: 'Koobface',
                 summary: 'Sare sozialetan hedatzen zen harra (worm), ordenagailuak infektatu eta botnet baten zati bihurtzen zituena.',
                 content: `Koobface (izena "Facebook" hitzaren anagrama batetik dator) sare sozial nagusien bidez (Facebook, MySpace, Twitter, YouTube) zabaltzen zen malware eta har informatiko ezaguna da.
 
 ### Nola Funtzionatzen Zuen?
-* **Sare Sozialetako Iruzurrak:** Biktimaren kontutik bere lagunei mezu erakargarriak bidaltzen zizkien (adibidez: "Aizpa, ikusi al duzu bideo hau zutaz?").
-* **Erreproduzitzaile Faltsua:** Estekan sakatzean, bideoa ikusteko "Flash Player eguneratu" behar zela esaten zuen webgune kaltegarri batera bideratzen zituen erabiltzaileak.
-* **Mendeko Gailua:** Instalatu ondorioz, ordenagailua ziberdelagileen mende geratzen zen eta haien aginduak jarraitzen zituen.
+* **Sare sozialetako iruzurrak:** Biktimaren kontutik bere lagunei mezu erakargarriak bidaltzen zizkien (adibidez: "Ahizpa, ikusi al duzu bideo hau zutaz?").
+* **Erreproduzitzaile faltsua:** Estekan sakatzean, bideoa ikusteko "Flash Player eguneratu" behar zela esaten zuen webgune kaltegarri batera bideratzen zituen erabiltzaileak.
+* **Mendeko gailua:** Instalatu ondorioz, ordenagailua ziberdelagileen mende geratzen zen eta haien aginduak jarraitzen zituen.
 
 ### Babes Neurriak:
 1. Ez egin klik sare sozialetan lagunek bidalitako esteka arraro edo ezezagunetan.
@@ -325,14 +357,15 @@ RedLine Stealer gaur egun zabalduen dagoen InfoStealer-etako bat da. Malware hon
             },
             {
                 id: 'botnet',
+                temario: 2,
                 title: 'Botnet',
                 summary: 'Ziberdelagile baten urruneko kontrolpean dauden infektatutako gailu eta ordenagailuen sarea.',
                 content: `Botnet bat ("robot network" hitzen elkarketatik) ziberdelagile batek (botmaster-a) malware bidez infektatu eta urrunetik kudeatzen dituen gailuen sare zabal bat da. Gailu hauek "zombie" moduan ezagutzen dira, jabeek jakin gabe jarduten baitute.
 
-### Zer Tartek erabili dezakete Botnet bat?
-* **DDoS Erasoak:** Milioika gailuk aldi berean webgune edo zerbitzari baten aurka eskaerak bidaltzea, zerbitzua erortzeraino.
-* **Spam Bidalketa:** Milioika mezu elektroniko iruzurgarri bidaltzea segundoko.
-* **Cryptojacking:** Kutsatutako gailuen prozesadoreak kriptomonedak meatzeko ezkutuan erabiltzea.
+### Zertarako Erabili Daiteke Botnet Bat?
+* **DDoS erasoak:** Milioika gailuk aldi berean webgune edo zerbitzari baten aurka eskaerak bidaltzea, zerbitzua erortzeraino.
+* **Spam bidalketa:** Milioika mezu elektroniko iruzurgarri bidaltzea segundoko.
+* **Cryptojacking:** Kutsatutako gailuen prozesadoreak kriptomonetak meatzeko ezkutuan erabiltzea.
 
 ### Babes Neurriak:
 1. Aldatu beti gailu berrien (routerrak, IoT gailuak, segurtasun-kamerak) fabrika-pasahitzak.
@@ -343,14 +376,15 @@ RedLine Stealer gaur egun zabalduen dagoen InfoStealer-etako bat da. Malware hon
             },
             {
                 id: 'indar-gordina',
+                temario: 2,
                 title: 'Indar gordineko erasoa (Fuerza bruta)',
                 summary: 'Proba eta errore bidez pasahitzak edo gakoak lortzeko teknika, konbinazio guztiak jarraian probatuz.',
                 content: `Indar gordineko erasoa (Brute Force Attack) zibersegurtasuneko metodo automatizatua da, non programa informatiko batek pasahitz bat, PIN kode bat edo gako enkriptatu bat aurkitzeko konbinazio posible guztiak banan-banan probatzen dituen asmatu arte.
 
 ### Indar Gordin Mota Nagusiak:
-* **Hiztegi Erasoa (Dictionary Attack):** Hiztegi batean agertzen diren hitzak edo pasahitz erabilienak soilik probatzea.
+* **Hiztegi-erasoa (Dictionary Attack):** Hiztegi batean agertzen diren hitzak edo pasahitz erabilienak soilik probatzea.
 * **Credential Stuffing:** Beste webgune batzuetan filtratutako erabiltzaile/pasahitz bikoteak milaka plataformetan automatikoki saiatzea.
-* **Brute Force Osoa:** Karaktereen konbinazio guztiak (letrak, zenbakiak, ikurrak) ordenan probatzea.
+* **Brute Force osoa:** Karaktereen konbinazio guztiak (letrak, zenbakiak, ikurrak) ordenan probatzea.
 
 ### Babes Neurriak:
 1. Erabili pasahitz luzeak, konplexuak eta zerbitzu bakoitzean ezberdinak direnak.
@@ -395,7 +429,10 @@ RedLine Stealer gaur egun zabalduen dagoen InfoStealer-etako bat da. Malware hon
         });
 
         function renderCards() {
-            const container = document.getElementById('cardsContainer');
+            const container1 = document.getElementById('temario1Container');
+            const container2 = document.getElementById('temario2Container');
+            const section1 = document.getElementById('temario1Section');
+            const section2 = document.getElementById('temario2Section');
             const emptyState = document.getElementById('emptyState');
 
             const filtered = GLOSSARY_DATA.filter(item => {
@@ -405,18 +442,45 @@ RedLine Stealer gaur egun zabalduen dagoen InfoStealer-etako bat da. Malware hon
             });
 
             if (filtered.length === 0) {
-                container.innerHTML = '';
+                container1.innerHTML = '';
+                container2.innerHTML = '';
+                section1.classList.add('hidden');
+                section2.classList.add('hidden');
                 emptyState.classList.remove('hidden');
                 return;
             }
 
             emptyState.classList.add('hidden');
-            container.innerHTML = filtered.map(item => `
+
+            const t1Items = filtered.filter(item => item.temario === 1);
+            const t2Items = filtered.filter(item => item.temario === 2);
+
+            if (t1Items.length > 0) {
+                section1.classList.remove('hidden');
+                container1.innerHTML = t1Items.map(item => createCardHTML(item)).join('');
+            } else {
+                section1.classList.add('hidden');
+                container1.innerHTML = '';
+            }
+
+            if (t2Items.length > 0) {
+                section2.classList.remove('hidden');
+                container2.innerHTML = t2Items.map(item => createCardHTML(item)).join('');
+            } else {
+                section2.classList.add('hidden');
+                container2.innerHTML = '';
+            }
+
+            lucide.createIcons();
+        }
+
+        function createCardHTML(item) {
+            return `
                 <div onclick="openReaderModal('${item.id}')" class="glass-panel gold-card-hover rounded-2xl p-6 flex flex-col justify-between cursor-pointer space-y-4 relative group">
                     <div class="space-y-2">
                         <div class="flex items-center justify-between">
                             <span class="text-[11px] font-bold text-amber-800 dark:text-champagne-400 uppercase tracking-widest px-2.5 py-1 rounded-full bg-amber-100 dark:bg-amber-500/10 border border-amber-300 dark:border-amber-500/20">
-                                Konzeptua
+                                Kontzeptua
                             </span>
                             <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-amber-700 dark:group-hover:text-champagne-400 transition-colors"></i>
                         </div>
@@ -433,9 +497,7 @@ RedLine Stealer gaur egun zabalduen dagoen InfoStealer-etako bat da. Malware hon
                         <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
                     </div>
                 </div>
-            `).join('');
-
-            lucide.createIcons();
+            `;
         }
 
         function openReaderModal(id) {
