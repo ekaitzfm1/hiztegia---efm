@@ -139,29 +139,29 @@
         </header>
 
         <main class="space-y-10">
-            <!-- Temario 1 Section -->
-            <section id="temario1Section" class="space-y-4">
+            <!-- Gaia 1 Section -->
+            <section id="gaia1Section" class="space-y-4">
                 <div class="flex items-center gap-3 border-b border-amber-500/30 pb-2">
                     <span class="w-2.5 h-6 bg-amber-500 rounded-full inline-block"></span>
                     <h2 class="font-serif text-xl sm:text-2xl font-bold gold-gradient-text">
-                        1. Temarioa: Software Kaltegarria eta Iruzurrak
+                        1. Gaia
                     </h2>
                 </div>
-                <div id="temario1Container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Cards for Temario 1 -->
+                <div id="gaia1Container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Cards for Gaia 1 -->
                 </div>
             </section>
 
-            <!-- Temario 2 Section -->
-            <section id="temario2Section" class="space-y-4">
+            <!-- Gaia 2 Section -->
+            <section id="gaia2Section" class="space-y-4">
                 <div class="flex items-center gap-3 border-b border-amber-500/30 pb-2">
                     <span class="w-2.5 h-6 bg-amber-500 rounded-full inline-block"></span>
                     <h2 class="font-serif text-xl sm:text-2xl font-bold gold-gradient-text">
-                        2. Temarioa: Sare Erasoak eta Botnet-ak
+                        2. Gaia
                     </h2>
                 </div>
-                <div id="temario2Container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Cards for Temario 2 -->
+                <div id="gaia2Container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Cards for Gaia 2 -->
                 </div>
             </section>
 
@@ -209,12 +209,12 @@
     </div>
 
     <script>
-        // Glossary Entries in Basque (Euskera) separated into 2 Syllabi / Temarioak
+        // Glossary Entries in Basque (Euskera) organized into 2 Gaiak
         const GLOSSARY_DATA = [
-            /* TEMARIO 1: SOFTWARE KALTEGARRIA ETA IRUZURRAK */
+            /* 1. GAIA */
             {
                 id: 'phishing',
-                temario: 1,
+                gaia: 1,
                 title: 'Phishing-a',
                 summary: 'Gizarte-ingeniaritzako teknika, informazio konfidentziala eta kredentzialak lapurtzeko helburua duena.',
                 content: `Phishing-a zibereraso mota bat da, non eraso-egileak erakunde edo pertsona fidagarri baten identitatea ordezkatzen duen, biktimak informazio sentsiblea (adibidez, pasahitzak, banku-datuak edo kreditu-txartelen zenbakiak) eman dezan.
@@ -230,11 +230,19 @@
 3. Egiaztatu webguneen URL helbideak eta ziurtagiri digitalak.
 
 ### 🔴 Gertaera Erreala: Evaldas Rimasauskas (2013-2015)
-Evaldas Rimasauskas lituaniarrak ziber-iruzur erraldoia burutu zuen Google eta Facebook teknologia-konpainia nagusien aurka. Spear phishing bidez, Quanta Computer Asia-ko hornitzaile ezagunaren faktura eta posta elektroniko faltsuak bidali zizkien bi konpainia multinazional hauei. Iruzur honen bidez, **120 milioi dolar baino gehiago** bereganatu zituen bi urtean, teknologia-erraldoiak ere gizarte-ingeniaritzaren aurrean babesgabe egon daitezkeela erakutsiz.`
+Evaldas Rimasauskas lituaniarrak ziber-iruzur erraldoia burutu zuen Google eta Facebook teknologia-konpainia nagusien aurka. Spear phishing bidez, Quanta Computer Asia-ko hornitzaile ezagunaren faktura eta posta elektroniko faltsuak bidali zizkien bi konpainia multinazional hauei. Iruzur honen bidez, **120 milioi dolar baino gehiago** bereganatu zituen bi urtean, teknologia-erraldoiak ere gizarte-ingeniaritzaren aurrean babesgabe egon daitezkeela erakutsiz.
+
+### 🛡️ Segurtasun Printzipioak:
+* **Konfidentzialtasuna:** Erasotzaileak erabiltzailearen pasahitz eta kredentzial pribatuak ezkutuan eskuratzen dituelako.
+* **Autentikotasuna:** Erakunde edo pertsona fidagarri baten identitatea faltsutzen delako biktima engainatzeko.
+
+### 📚 Iturriak:
+* CISA (Cybersecurity and Infrastructure Security Agency) - *Recognizing and Avoiding Phishing Attacks*.
+* ENISA (European Union Agency for Cybersecurity) - *Threat Landscape for Social Engineering*.`
             },
             {
                 id: 'biren-erasoa',
-                temario: 1,
+                gaia: 1,
                 title: 'Bitartekoaren erasoa (Man-in-the-Middle)',
                 summary: 'Komunikazio baten erdian eraso-egilea ezkutuan jartzen den eraso mota, datuak entzuteko edo aldatzeko.',
                 content: `Bitartekoaren erasoa (Man-in-the-Middle edo MitM) zibersegurtasuneko eraso bat da, non erasotzaileak bi alderdiren arteko komunikazioa ezkutuan interceptatu eta bideratzen duen, bi komunikakideek beren artean zuzenean hitz egiten ari direla uste duten bitartean.
@@ -250,11 +258,19 @@ Evaldas Rimasauskas lituaniarrak ziber-iruzur erraldoia burutu zuen Google eta F
 3. Ez egin transakzio garrantzitsurik babestu gabeko sareetan.
 
 ### 🔴 Gertaera Erreala: DigiNotar-en Kasua (2011)
-2011n, Herbehereetako DigiNotar ziurtagiri-jaulkitzaile ofizialak segurtasun-haustura larria jasan zuen. Erasotzaileek SSL/TLS ziurtagiri faltsuak sortu zituzten Google, Yahoo eta beste zerbitzu batzuentzat. MitM eraso honen bidez, Iraneko gobernuak **300.000 erabiltzaile irandar baino gehiagoren** Gmail bidezko komunikazioak ezkutuan ikuskatu zituen. Gertakari honen ondorioz, DigiNotar enpresak porrot egin zuen.`
+2011n, Herbehereetako DigiNotar ziurtagiri-jaulkitzaile ofizialak segurtasun-haustura larria jasan zuen. Erasotzaileek SSL/TLS ziurtagiri faltsuak sortu zituzten Google, Yahoo eta beste zerbitzu batzuentzat. MitM eraso honen bidez, Iraneko gobernuak **300.000 erabiltzaile irandar baino gehiagoren** Gmail bidezko komunikazioak ezkutuan ikuskatu zituen. Gertakari honen ondorioz, DigiNotar enpresak porrot egin zuen.
+
+### 🛡️ Segurtasun Printzipioak:
+* **Konfidentzialtasuna:** Bi alderen arteko elkarrizketa eta igorritako datu pribatuak ezkutuan entzuten direlako.
+* **Osotasuna:** Erasotzaileak bidalitako mezuak bidean aldatu edo manipulatu ditzakeelako jatorrizko edukia hondatuz.
+
+### 📚 Iturriak:
+* OWASP (Open Web Application Security Project) - *Man-in-the-Middle Attack Guidelines*.
+* DigiNotar Security Incident Report (2011 Audit Report).`
             },
             {
                 id: 'troiarra',
-                temario: 1,
+                gaia: 1,
                 title: 'Troiarra (Trojan)',
                 summary: 'Programa kaltegarria, erabilgarria edo legezkoa dela dirudiena, ordenagailuan sartzeko eta erasoak egiteko.',
                 content: `Troiarra (Trojan Horse) software kaltegarri (malware) mota bat da, software legitimo edo erabilgarri baten moduan mozorraturik aurkezten dena. Izena Greziako mitologiako Troiako Zalditik dator.
@@ -272,11 +288,19 @@ Birusak edo harrak ez bezala, troiarrek ez dute beren burua automatikoki errepli
 2. Mantendu antibirusa eta sistema eragilea eguneratuta.
 
 ### 🔴 Gertaera Erreala: ZeuS Troiarra (2007-2010)
-ZeuS troiarra historiako banku-malware ospetsuenetako bat izan zen. Erabiltzaileek fitxategi legitimo gisa deskargatzen zuten, baina behin sisteman sartuta, form-grabbing eta keylogging bidez banku-kredentzialak lapurtzen zituen. Mundu osoko ehunka mila ordenagailu infektatu zituen eta **100 milioi dolar baino gehiagoko** kalte ekonomiko zuzenak eragin zituen nazioarteko finantza-erakundetan.`
+ZeuS troiarra historiako banku-malware ospetsuenetako bat izan zen. Erabiltzaileek fitxategi legitimo gisa deskargatzen zuten, baina behin sisteman sartuta, form-grabbing eta keylogging bidez banku-kredentzialak lapurtzen zituen. Mundu osoko ehunka mila ordenagailu infektatu zituen eta **100 milioi dolar baino gehiagoko** kalte ekonomiko zuzenak eragin zituen nazioarteko finantza-erakundetan.
+
+### 🛡️ Segurtasun Printzipioak:
+* **Osotasuna:** Baimenik gabeko kodesartzeak sistemaren eta fitxategien egoera legezkoa alteratzen duelako.
+* **Konfidentzialtasuna:** Behin barruan dagoela, finantza-datuak eta pasahitzak ezkutuan erauzten dituelako.
+
+### 📚 Iturriak:
+* MITRE ATT&CK Framework - *Technique T1204: User Execution*.
+* FBI & Cybercrime Division Technical Report - *ZeuS Trojan Operation Analysis*.`
             },
             {
                 id: 'backdoors-ak',
-                temario: 1,
+                gaia: 1,
                 title: 'Atzeko ateak (Backdoors)',
                 summary: 'Sistemaren autentifikazio arrunta saihestuz sartzeko bidea ematen duen sarbide sekretua.',
                 content: `Backdoor edo "Atzeko atea" sistema informatiko batean ezkutuan uzten den sarbide-bidea da, ohiko segurtasun-kontrolak eta autentifikazio-mekanismoak saihesteko aukera ematen duena.
@@ -293,11 +317,19 @@ Sistemaren jabeak jakin gabe, ziberdelagileek eduki guztietarako sarbide osoa lo
 2. Aldian-aldian segurtasun-auditoriak eta kode-berrikuspenak egin.
 
 ### 🔴 Gertaera Erreala: SolarWinds SUNBURST Erasoa (2020)
-2020ko abenduan, historiako hornikuntza-katearen eraso handienetako bat argitara eman zen. Erasotzaileek SolarWinds konpainiaren Orion kudeaketa-softwarearen eguneratze ofizialean atzeko ate ezkutu bat (SUNBURST) txertatu zuten. Ondorioz, **18.000 erakunde baino gehiagok** (AEBetako Segurtasun Nazionaleko Saila, Ogasuna eta multinazional handiak) eguneratze kutsatua instalatu zuten, ziberespioiei hilabetez haien barne-sareetan sartzeko bidea emanez.`
+2020ko abenduan, historiako hornikuntza-katearen eraso handienetako bat argitara eman zen. Erasotzaileek SolarWinds konpainiaren Orion kudeaketa-softwarearen eguneratze ofizialean atzeko ate ezkutu bat (SUNBURST) txertatu zuten. Ondorioz, **18.000 erakunde baino gehiagok** (AEBetako Segurtasun Nazionaleko Saila, Ogasuna eta multinazional handiak) eguneratze kutsatua instalatu zuten, ziberespioiei hilabetez haien barne-sareetan sartzeko bidea emanez.
+
+### 🛡️ Segurtasun Printzipioak:
+* **Autentikotasuna eta Sarbide Kontrola:** Autentifikazio eta baimen-sistemak erabat saihesten direlako.
+* **Konfidentzialtasuna eta Osotasuna:** Erasotzaileak barne-sareetan mugarik gabe nabiga dezakeelako datuak ikusteko edo aldatzeko.
+
+### 📚 Iturriak:
+* Mandiant / FireEye Report (2020) - *SUNBURST Supply Chain Attack Analysis*.
+* CISA Emergency Directive 21-01.`
             },
             {
                 id: 'spyware-a',
-                temario: 1,
+                gaia: 1,
                 title: 'Spyware-a',
                 summary: 'Erabiltzailearen jarduera ezkutuan monitorizatzen eta informazioa biltzen duen software kaltegarria.',
                 content: `Spyware-a erabiltzailearen baimenik gabe ordenagailuan edo mugikorrean instalatzen den malware mota da, haren ohiturak, informazio pertsonala eta sistema-jarduera ezkutuan grabatu eta hirugarrenei bidaltzeko.
@@ -312,11 +344,18 @@ Sistemaren jabeak jakin gabe, ziberdelagileek eduki guztietarako sarbide osoa lo
 2. Erabili spyware-aren aurkako babes espezifikoa duten segurtasun-tresnak.
 
 ### 🔴 Gertaera Erreala: Pegasus Spyware-a (NSO Group)
-NSO Group konpainia israeldarrak garatutako Pegasus programa historiako spyware boteretsuenetako bat da. Zero-click ahuleziak erabiliz (biktima ezer sakatu gabe), Pegasus gailu mugikorretan ezkutuan instalatzen zen. Behin barruan, mezu enkriptatuak, deien grabazioak, argazkiak eta mikrofonoa ezkutuan atzitzen zituen. Mundu osoko **ehunka kazetari, giza eskubideen defendatzaile eta politikari garrantzitsu** ezkutuan ikuskatzeko erabili zen.`
+NSO Group konpainia israeldarrak garatutako Pegasus programa historiako spyware boteretsuenetako bat da. Zero-click ahuleziak erabiliz (biktima ezer sakatu gabe), Pegasus gailu mugikorretan ezkutuan instalatzen zen. Behin barruan, mezu enkriptatuak, deien grabazioak, argazkiak eta mikrofonoa ezkutuan atzitzen zituen. Mundu osoko **ehunka kazetari, giza eskubideen defendatzaile eta politikari garrantzitsu** ezkutuan ikuskatzeko erabili zen.
+
+### 🛡️ Segurtasun Printzipioak:
+* **Konfidentzialtasuna:** Erabiltzailearen bizitza pribatua, kokapena, argazkiak eta audioak baimenik gabe zelatatzen dituelako.
+
+### 📚 Iturriak:
+* Amnesty International Security Lab - *Forensic Methodology Report: Pegasus Spyware*.
+* Citizen Lab (University of Toronto) - *Hide and Seek: NSO Group’s Pegasus Surveillance*.`
             },
             {
                 id: 'stealer-rak',
-                temario: 1,
+                gaia: 1,
                 title: 'Stealer-ak (InfoStealers)',
                 summary: 'Gailu batetik kredentzialak, saio-hasierak eta kripto-zorroen datuak biltzera bideratutako malware espezializatua.',
                 content: `InfoStealer edo Stealer-a malware mota oso espezializatua da, helburu bakarra duena: infektatutako gailuan gordetako informazio konfidentziala azkar bildu eta ziberdelagilearen zerbitzarira helaraztea.
@@ -332,13 +371,21 @@ NSO Group konpainia israeldarrak garatutako Pegasus programa historiako spyware 
 2. Erabili bi urratseko autentifikazioa (2FA) eta saioak aldian-aldian itxi.
 
 ### 🔴 Gertaera Erreala: RedLine Stealer eta Uber / Rockstar Games Erasoak (2022)
-RedLine Stealer gaur egun zabalduen dagoen InfoStealer-etako bat da. Malware honek nabigatzaileen saio-cookieak eta pasahitzak erauzten ditu. 2022an, Uber eta Rockstar Games (GTA VI bideojokoaren iturburu-kodearen filtrazioa eragin zuena) konpainiek eraso larriak jasan zituzten. Erasotzaileek kanpoko langile baten ordenagailu pertsonaletik RedLine bidez lapurtutako **saio-cookieak** erabili zituzten barne-sareetan sartzeko, 2FA autentifikazioa erabat saihestuz.`
+RedLine Stealer gaur egun zabalduen dagoen InfoStealer-etako bat da. Malware honek nabigatzaileen saio-cookieak eta pasahitzak erauzten ditu. 2022an, Uber eta Rockstar Games (GTA VI bideojokoaren iturburu-kodearen filtrazioa eragin zuena) konpainiek eraso larriak jasan zituzten. Erasotzaileek kanpoko langile baten ordenagailu pertsonaletik RedLine bidez lapurtutako **saio-cookieak** erabili zituzten barne-sareetan sartzeko, 2FA autentifikazioa erabat saihestuz.
+
+### 🛡️ Segurtasun Printzipioak:
+* **Konfidentzialtasuna:** Biltegiratutako kredentzialak eta gako kriptografikoak ezkutuan erauzten dituelako.
+* **Autentikotasuna:** Saio-cookieak lapurtuz, eraso-egileak biktimaren identitatea bereganatzen duelako plataformetan.
+
+### 📚 Iturriak:
+* Flashpoint Threat Intelligence - *InfoStealer Malware Ecosystem Analysis*.
+* Mandiant Threat Research - *RedLine Stealer Operations Report*.`
             },
 
-            /* TEMARIO 2: SARE ERASOAK ETA BOTNET-AK */
+            /* 2. GAIA */
             {
                 id: 'koobface',
-                temario: 2,
+                gaia: 2,
                 title: 'Koobface',
                 summary: 'Sare sozialetan hedatzen zen harra (worm), ordenagailuak infektatu eta botnet baten zati bihurtzen zituena.',
                 content: `Koobface (izena "Facebook" hitzaren anagrama batetik dator) sare sozial nagusien bidez (Facebook, MySpace, Twitter, YouTube) zabaltzen zen malware eta har informatiko ezaguna da.
@@ -353,11 +400,19 @@ RedLine Stealer gaur egun zabalduen dagoen InfoStealer-etako bat da. Malware hon
 2. Ez deskargatu plugin edo edukirik ziurtatutako iturburuetatik kanpo.
 
 ### 🔴 Gertaera Erreala: "Ali Baba & 40 404s" Taldeari Lotutako Botnet-a (2008-2010)
-2008 eta 2010 artean, Koobface-k milioika ordenagailu infektatu zituen mundu osoan, ziber-historiako sare sozial bidezko botnet handienetako bat sortuz. Erasotzaileek kutsatutako ordenagailuak erabili zituzten klik-iruzurra egiteko (click fraud), publizitate faltsua erakusteko eta bilaketen emaitzak manipulatzeko. Jarduera honi esker, taldeak **milioika dolar** lortu zituen zibersegurtasun-ikertzaileek haien azpiegitura desmuntatu aurretik.`
+2008 eta 2010 artean, Koobface-k milioika ordenagailu infektatu zituen mundu osoan, ziber-historiako sare sozial bidezko botnet handienetako bat sortuz. Erasotzaileek kutsatutako ordenagailuak erabili zituzten klik-iruzurra egiteko (click fraud), publizitate faltsua erakusteko eta bilaketen emaitzak manipulatzeko. Jarduera honi esker, taldeak **milioika dolar** lortu zituen zibersegurtasun-ikertzaileek haien azpiegitura desmuntatu aurretik.
+
+### 🛡️ Segurtasun Printzipioak:
+* **Konfidentzialtasuna eta Osotasuna:** Erabiltzailearen sare sozialetako kontuak baimenik gabe erabiltzen direlako mezu iruzurtsuak hedatzeko.
+* **Erabilgarritasuna:** Infektatutako gailuen baliabideak (prozesadorea, sarea) beste helburu batzuetarako desbideratzen direlako.
+
+### 📚 Iturriak:
+* Trend Micro Research - *The Koobface Botnet: Anatomy and Operations*.
+* Sophos Security Labs - *Social Network Worms Whitepaper*.`
             },
             {
                 id: 'botnet',
-                temario: 2,
+                gaia: 2,
                 title: 'Botnet',
                 summary: 'Ziberdelagile baten urruneko kontrolpean dauden infektatutako gailu eta ordenagailuen sarea.',
                 content: `Botnet bat ("robot network" hitzen elkarketatik) ziberdelagile batek (botmaster-a) malware bidez infektatu eta urrunetik kudeatzen dituen gailuen sare zabal bat da. Gailu hauek "zombie" moduan ezagutzen dira, jabeek jakin gabe jarduten baitute.
@@ -372,11 +427,19 @@ RedLine Stealer gaur egun zabalduen dagoen InfoStealer-etako bat da. Malware hon
 2. Mantendu gailu guztien firmwarea eta sistema eragilea eguneratuta.
 
 ### 🔴 Gertaera Erreala: Mirai Botnet-aren Eraso Masiboa (2016)
-2016ko urrian, Mirai izeneko botnet-ak Internet osoaren zati handi bat paralizatu zuen. Mirai-k segurtasun-kamera eta router babesgabeak kutsatu zituen (fabrikako pasahitz lehenetsiak erabiliz) **600.000 gailu baino gehiagoko sarea** osatuz. Mirai-k Dyn DNS zerbitzuaren aurkako DDoS eraso erraldoia (1.2 Tbps) abiatu zuen. Ondorioz, ordu batzuetan zehar Interneteko zerbitzu nagusiak erori ziren mundu osoan, besteak beste, **Twitter, Netflix, Spotify, Reddit eta PlayStation Network** lineatik kanpo utziz.`
+2016ko urrian, Mirai izeneko botnet-ak Internet osoaren zati handi bat paralizatu zuen. Mirai-k segurtasun-kamera eta router babesgabeak kutsatu zituen (fabrikako pasahitz lehenetsiak erabiliz) **600.000 gailu baino gehiagoko sarea** osatuz. Mirai-k Dyn DNS zerbitzuaren aurkako DDoS eraso erraldoia (1.2 Tbps) abiatu zuen. Ondorioz, ordu batzuetan zehar Interneteko zerbitzu nagusiak erori ziren mundu osoan, besteak beste, **Twitter, Netflix, Spotify, Reddit eta PlayStation Network** lineatik kanpo utziz.
+
+### 🛡️ Segurtasun Printzipioak:
+* **Erabilgarritasuna:** Zerbitzu publikoak, webguneak eta sare-azpiegiturak kolapsatzen dituelako, bidezko erabiltzaileei sarbidea eragotziz.
+* **Osotasuna:** Erabiltzaileen IoT gailuak baimenik gabe kontrolatzen eta manipulatzen direlako.
+
+### 📚 Iturriak:
+* Cloudflare Research - *Understanding Mirai Botnet and DDoS Attacks*.
+* US-CERT Alert TA16-288A - *Mirai Botnet Operations*.`
             },
             {
                 id: 'indar-gordina',
-                temario: 2,
+                gaia: 2,
                 title: 'Indar gordineko erasoa (Fuerza bruta)',
                 summary: 'Proba eta errore bidez pasahitzak edo gakoak lortzeko teknika, konbinazio guztiak jarraian probatuz.',
                 content: `Indar gordineko erasoa (Brute Force Attack) zibersegurtasuneko metodo automatizatua da, non programa informatiko batek pasahitz bat, PIN kode bat edo gako enkriptatu bat aurkitzeko konbinazio posible guztiak banan-banan probatzen dituen asmatu arte.
@@ -392,7 +455,15 @@ RedLine Stealer gaur egun zabalduen dagoen InfoStealer-etako bat da. Malware hon
 3. Aktibatu bi urratseko autentifikazioa (2FA) kontu guztietan.
 
 ### 🔴 Gertaera Erreala: GitHub-eko Credential Stuffing Erasoa (2013)
-2013ko uztailean, GitHub garatzaileen plataformak tamaina handiko indar gordineko erasoa jasan zuen. Ziberdelagileek beste zerbitzu batzuetatik filtratutako 40.000 pasahitz erabilien zerrenda bat erabili zuten automatikoki GitHub-eko kontuetan sartzen saiatzeko. Erasotzaileek ehunka garatzaileren kontuetan sartzea lortu zuten. Horren ondorioz, GitHub-ek pasahitz guztiak berrezarri zituen eta **bi urratseko autentifikazioa (2FA)** ezarri zien bere erabiltzaile guztiei.`
+2013ko uztailean, GitHub garatzaileen plataformak tamaina handiko indar gordineko erasoa jasan zuen. Ziberdelagileek beste zerbitzu batzuetatik filtratutako 40.000 pasahitz erabilien zerrenda bat erabili zuten automatikoki GitHub-eko kontuetan sartzen saiatzeko. Erasotzaileek ehunka garatzaileren kontuetan sartzea lortu zuten. Horren ondorioz, GitHub-ek pasahitz guztiak berrezarri zituen eta **bi urratseko autentifikazioa (2FA)** ezarri zien bere erabiltzaile guztiei.
+
+### 🛡️ Segurtasun Printzipioak:
+* **Autentikotasuna eta Sarbide Kontrola:** Erabiltzaileen sarbide-hesiak eta pasahitz sekretuak bortxatzen direlako.
+* **Konfidentzialtasuna:** Pasahitza asmatzean, kontuko datu pribatu guztiak babesgabe geratzen direlako.
+
+### 📚 Iturriak:
+* NIST Special Publication 800-63B - *Digital Identity Guidelines: Authentication and Lifecycle Management*.
+* GitHub Security Advisory (2013 Incident Report).*`
             }
         ];
 
@@ -429,10 +500,10 @@ RedLine Stealer gaur egun zabalduen dagoen InfoStealer-etako bat da. Malware hon
         });
 
         function renderCards() {
-            const container1 = document.getElementById('temario1Container');
-            const container2 = document.getElementById('temario2Container');
-            const section1 = document.getElementById('temario1Section');
-            const section2 = document.getElementById('temario2Section');
+            const container1 = document.getElementById('gaia1Container');
+            const container2 = document.getElementById('gaia2Container');
+            const section1 = document.getElementById('gaia1Section');
+            const section2 = document.getElementById('gaia2Section');
             const emptyState = document.getElementById('emptyState');
 
             const filtered = GLOSSARY_DATA.filter(item => {
@@ -452,20 +523,20 @@ RedLine Stealer gaur egun zabalduen dagoen InfoStealer-etako bat da. Malware hon
 
             emptyState.classList.add('hidden');
 
-            const t1Items = filtered.filter(item => item.temario === 1);
-            const t2Items = filtered.filter(item => item.temario === 2);
+            const g1Items = filtered.filter(item => item.gaia === 1);
+            const g2Items = filtered.filter(item => item.gaia === 2);
 
-            if (t1Items.length > 0) {
+            if (g1Items.length > 0) {
                 section1.classList.remove('hidden');
-                container1.innerHTML = t1Items.map(item => createCardHTML(item)).join('');
+                container1.innerHTML = g1Items.map(item => createCardHTML(item)).join('');
             } else {
                 section1.classList.add('hidden');
                 container1.innerHTML = '';
             }
 
-            if (t2Items.length > 0) {
+            if (g2Items.length > 0) {
                 section2.classList.remove('hidden');
-                container2.innerHTML = t2Items.map(item => createCardHTML(item)).join('');
+                container2.innerHTML = g2Items.map(item => createCardHTML(item)).join('');
             } else {
                 section2.classList.add('hidden');
                 container2.innerHTML = '';
