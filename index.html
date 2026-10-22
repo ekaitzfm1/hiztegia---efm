@@ -206,13 +206,13 @@
 3. Egiaztatu webguneen URL helbideak eta ziurtagiri digitalak.
 
 ### 🔴 Gertaera Erreala: Evaldas Rimasauskas (2013-2015)
-Evaldas Rimasauskas lituaniarrak ziber-iruzur erraldoia burutu zuen Google eta Facebook teknologia konpainia nagusien aurka. Spear phishing bidez, Quanta Computer Asia-ko hornitzaile ezagunaren faktura eta posta elektroniko faltsuak bidali zizkien bi konpainia multinazional haueri. Iruzur honen bidez, **120 milioi dolar baino gehiago** bereganatu zituen bi urtean, teknologia-erraldoiak ere gizarte-ingeniaritzaren aurrean babesgabe egon daitezkeela erakutsiz.`
+Evaldas Rimasauskas lituaniarrak ziber-iruzur erraldoia burutu zuen Google eta Facebook teknologia konpainia nagusien aurka. Spear phishing bidez, Quanta Computer Asia-ko hornitzaile ezagunaren faktura eta posta elektroniko faltsuak bidali zizkien bi konpainia multinazional haeuri. Iruzur honen bidez, **120 milioi dolar baino gehiago** bereganatu zituen bi urtean, teknologia-erraldoiak ere gizarte-ingeniaritzaren aurrean babesgabe egon daitezkeela erakutsiz.`
             },
             {
                 id: 'biren-erasoa',
                 title: 'Biren erasoa (Man-in-the-Middle)',
                 summary: 'Komunikazio baten erdian eraso-egilea ezkutuan jartzen den eraso mota, datuak entzuteko edo aldatzeko.',
-                content: `Biren erasoa (Man-in-the-Middle edo MitM) zibersegurtasuneko eraso bat da, non erasotzaileak bi alderdiren arteko komunikazioa ezkutuan intertzeptatu eta bideratzen duen, bi komunikakideek beren artean zuzenean hitz egiten ari direla uste duten bitartean.
+                content: `Biren erasoa (Man-in-the-Middle edo MitM) zibersegurtasuneko eraso bat da, non erasotzaileak bi alderdiren arteko komunikazioa ezkutuan interceptatu eta bideratzen duen, bi komunikakideek beren artean zuzenean hitz egiten ari direla uste duten bitartean.
 
 ### Eraso Motak:
 * **Wi-Fi Publiko Segogabeak:** Ziberdelagileek enkriptatu gabeko sareak erabiltzen dituzte trafikoa atzemateko.
@@ -454,26 +454,65 @@ RedLine Stealer gaur egun zabalduen dagoen InfoStealer-etako bat da. Malware hon
             document.getElementById('readerModal').classList.add('hidden');
         }
 
-        /* Formatting Helper for Markdown Content with High Light/Dark Contrast */
+        /* Formatting Helper for Markdown Content with Line-by-Line Grouping for Lists */
         function formatMarkdown(text) {
             let html = escapeHTML(text);
             
             // Headings (### )
-            html = html.replace(/### (.*?)\n/g, '<h3 class="font-serif font-bold text-amber-900 dark:text-champagne-400 text-base mt-5 mb-2 border-b border-amber-200 dark:border-amber-500/20 pb-1">$1</h3>');
+            html = html.replace(/### (.*?)(?:\r?\n|$)/g, '<h3 class="font-serif font-bold text-amber-900 dark:text-champagne-400 text-base mt-5 mb-2 border-b border-amber-200 dark:border-amber-500/20 pb-1">$1</h3>\n');
             
             // Bold (**text**)
             html = html.replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-slate-900 dark:text-slate-100">$1</strong>');
             
-            // Bullet points (* )
-            html = html.replace(/^\* (.*$)/gim, '<li class="ml-4 list-disc text-slate-800 dark:text-slate-300 my-1">$1</li>');
+            let lines = html.split(/\r?\n/);
+            let out = [];
+            let inOl = false;
+            let inUl = false;
             
-            // Numbered list (1. )
-            html = html.replace(/^(\d+)\. (.*$)/gim, '<li class="ml-4 list-decimal text-slate-800 dark:text-slate-300 my-1">$2</li>');
-
-            // Paragraph line breaks
-            html = html.replace(/\n\n/g, '</p><p class="my-2 leading-relaxed">');
-
-            return '<p class="my-2 leading-relaxed">' + html + '</p>';
+            for (let i = 0; i < lines.length; i++) {
+                let line = lines[i];
+                let trimmed = line.trim();
+                
+                let olMatch = trimmed.match(/^(\d+)\.\s+(.*)$/);
+                let ulMatch = trimmed.match(/^\*\s+(.*)$/);
+                
+                if (olMatch) {
+                    if (inUl) { out.push('</ul>'); inUl = false; }
+                    if (!inOl) {
+                        out.push('<ol class="list-decimal pl-6 space-y-1 my-2 text-slate-800 dark:text-slate-300">');
+                        inOl = true;
+                    }
+                    out.push('<li>' + olMatch[2] + '</li>');
+                } else if (ulMatch) {
+                    if (inOl) { out.push('</ol>'); inOl = false; }
+                    if (!inUl) {
+                        out.push('<ul class="list-disc pl-6 space-y-1 my-2 text-slate-800 dark:text-slate-300">');
+                        inUl = true;
+                    }
+                    out.push('<li>' + ulMatch[1] + '</li>');
+                } else {
+                    if (inOl) { out.push('</ol>'); inOl = false; }
+                    if (inUl) { out.push('</ul>'); inUl = false; }
+                    out.push(line);
+                }
+            }
+            if (inOl) out.push('</ol>');
+            if (inUl) out.push('</ul>');
+            
+            let processed = out.join('\n');
+            let blocks = processed.split(/\n\s*\n/);
+            let finalBlocks = [];
+            
+            for (let b of blocks) {
+                let bTrim = b.trim();
+                if (!bTrim) continue;
+                if (bTrim.startsWith('<h3') || bTrim.startsWith('<ol') || bTrim.startsWith('<ul')) {
+                    finalBlocks.push(bTrim);
+                } else {
+                    finalBlocks.push('<p class="my-2 leading-relaxed">' + bTrim + '</p>');
+                }
+            }
+            return finalBlocks.join('\n');
         }
 
         /* Escape HTML Helper */
