@@ -335,7 +335,7 @@ Sistemaren jabeak jakin gabe, ziberdelagileek eduki guztietarako sarbide osoa lo
                 content: `Spyware-a erabiltzailearen baimenik gabe ordenagailuan edo mugikorrean instalatzen den malware mota da, haren ohiturak, informazio pertsonala eta sistema-jarduera ezkutuan grabatu eta hirugarrenei bidaltzeko.
 
 ### Spyware Mota Nagusiak:
-* **Keylogger-ak:** Teklatuan idatzitako tekla bakoitza erregistratzen dute (pasahitzak detektatzeko).
+* **Keylogger-ak:** Teklatuan idatzi duzun tekla bakoitza erregistratzen dute (pasahitzak detektatzeko).
 * **Adware-a:** Baimenik gabeko publizitatea erakutsi eta nabigatzailearen ohiturak segitzen ditu.
 * **Espioitza Mugikorra:** Kamera, mikrofonoa eta GPS kokapena urrunetik aktibatzen dituzten aplikazioak.
 
@@ -380,6 +380,34 @@ RedLine Stealer gaur egun zabalduen dagoen InfoStealer-etako bat da. Malware hon
 ### 📚 Iturriak:
 * Flashpoint Threat Intelligence - *InfoStealer Malware Ecosystem Analysis*.
 * Mandiant Threat Research - *RedLine Stealer Operations Report*.`
+            },
+            {
+                id: 'wannacry',
+                gaia: 1,
+                title: 'Ransomware-a (WannaCry)',
+                summary: 'Fitxategiak enkriptatu eta kalte-ordaina (erreskatea) eskatzen duen malware hedatua.',
+                content: `Ransomware-a biktima baten fitxategi guztiak enkriptatzen dituen software kaltegarria da, ondoruak lehengoratzeko edo gakoa berreskuratzearen truke kriptomoneta bidezko kalte-ordaina (erreskatea) eskatzeko. WannaCry historiako ransomware eraso azkar eta kaltegarrienetako bat izan da.
+
+### Ezaugarri Nagusiak:
+* **Autoehedapena (Worm gaitasuna):** EternalBlue ahulezia erabiliz (SMBv1 protokoloan) giza esku-hartzerik gabe hedatzen zen sare osoan.
+* **Enkriptatze sendoa:** RSA eta AES algoritmoak erabiltzen ditu fitxategiak berreskuratzea ezinezko eginez gako gabe.
+* **Kriptomoneta bidezko ordainketa:** Bitcoin bidezko ordainketak eskatzen zituen spamen eta jarraipenen bidez atzematea ekiditeko.
+
+### Babes Neurriak:
+1. Egin segurtasun-kopia (backup) erregularrak eta mantendu horiek saretik kanpo isolatuta (offline).
+2. Eguneratu berehala sistema eragileak eta aplikatu segurtasun-adabakiak (patch-ak).
+3. Desaktibatu erabili gabeko protokolo zaharkituak (adibidez, SMBv1).
+
+### 🔴 Gertaera Erreala: WannaCry Eraso Globala (2017)
+2017ko maiatzean, WannaCry ransomware-ak munduko **150 herrialde baino gehiagotako 200.000 ordenagailu baino gehiago** infektatu zituen ordu gutxitan. Erresuma Batuko Osasun Zerbitzu Nazionala (NHS) erabat paralizatu zuen, ospitaleetako ebakuntzak eta larrialdiak bertan behera utzaraziz. Gainera, Telefónica, FedEx eta Renault bezalako enpresa multinazional erraldoiei kalte ekonomiko milioidunak eragin zizkien.
+
+### 🛡️ Segurtasun Printzipioak:
+* **Erabilgarritasuna:** Fitxategi eta sistema guztiak blokeatzen dituelako, haien erabilera erabat eragoztuz.
+* **Konfidentzialtasuna eta Osotasuna:** Sistemaren datuak enkriptatze bidez eraldatu eta ezezagunen esku uzten dituelako.
+
+### 📚 Iturriak:
+* National Cyber Security Centre (NCSC UK) - *WannaCry Ransomware Cyber Attack Technical Report*.
+* US-CERT Alert TA17-132A - *WannaCry Ransomware Vulnerability Analysis*.`
             },
 
             /* 2. GAIA */
@@ -464,6 +492,34 @@ RedLine Stealer gaur egun zabalduen dagoen InfoStealer-etako bat da. Malware hon
 ### 📚 Iturriak:
 * NIST Special Publication 800-63B - *Digital Identity Guidelines: Authentication and Lifecycle Management*.
 * GitHub Security Advisory (2013 Incident Report).*`
+            },
+            {
+                id: 'stuxnet',
+                gaia: 2,
+                title: 'Stuxnet (Ziber-arma / Harra)',
+                summary: 'Industria-sistemak suntsitzeko diseinatutako ziber-arma konplexua, Natanzeko zentral nuklearrari eraso ziona.',
+                content: `Stuxnet software kaltegarria (harra) historiako lehen ziber-arma digitaltzat jotzen da. Bere helburua ez zen informazioa lapurtzea, azpiegitura kritiko fisikoak (zehazki Siemens SCADA industria-sistemak) manipulatu eta suntsitzea baizik.
+
+### Ezaugarri Nagusiak:
+* **Zero-Day ahulezi anitz:** Lau 'Zero-Day' ahulezi desberdin erabili zituen aldi berean Windows sistema eragileetan zabaltzeko.
+* **Air-Gapped sareak zeharkatzea:** Internetera konektatuta ez zeuden sare babestuetan sartu zen USB memoria kutsatuen bidez.
+* **Manipulazio ezkutua:** Zentrifugatzaileen biraketa-abiadura aldatzen zuen azpiegitura fisikoa hondatzeko, operadoreei maiztasun arrunta erakusten zieten bitartean.
+
+### Babes Neurriak:
+1. Industria-sareak (OT) eta negozio-sareak (IT) erabat isolatu eta kudeaketa zorrotza ezarri.
+2. USB eta kanpoko gailu fisikoen erabilera erabat mugatu eta eskaneatu.
+3. PLCentzat eta industria-kontrolatzaileentzat firmware sinatua eta osotasun-egiaztapenak ezarri.
+
+### 🔴 Gertaera Erreala: Natanzeko Zentral Nuklearra (2010)
+Stuxnet harrak Irango Natanzeko uranio-aberasteko zentral nuklearraren aurkako eraso babesgabea burutu zuen. Harraren bidez, **1.000 zentrifugatzaile nuklear baino gehiago suntsitu ziren** fisikoki beren biraketa-abiadura mugaraino azkartuz eta geldituz. Eraso honek urteetan atzeratu zuen Irango programa nuklearra, gatazka geopolitikoetan ziber-armak lehen aldiz erabili zirela frogatuz.
+
+### 🛡️ Segurtasun Printzipioak:
+* **Osotasuna:** Industria-sistemek jasotzen zituzten komandoak eta datu teknikoak ezkutuan manipulatu zirelako.
+* **Erabilgarritasuna:** Azpiegitura kritikoaren funtzionamendu fisikoa erabat oztopatu eta makineria suntsitu zuelako.
+
+### 📚 Iturriak:
+* Symantec Security Response - *W32.Stuxnet Dossier (Detailed Technical Analysis)*.
+* IEEE Spectrum - *The Real Story of Stuxnet*.`
             }
         ];
 
